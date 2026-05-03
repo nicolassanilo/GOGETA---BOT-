@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  gogeta-bot:
+    build: .
+    container_name: gogeta-bot
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data:/app/data
+      - ./sessions:/app/sessions
+      - ./media:/app/media
+    environment:
+      - NODE_ENV=production
+    env_file:
+      - .env
