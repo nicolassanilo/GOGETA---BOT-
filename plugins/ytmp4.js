@@ -1,5 +1,6 @@
-import ytdl from '@distube/ytdl-core';
+import { chooseFormat, parseVideoId } from '@distube/ytdl-core';
 import ytsr from 'youtube-sr';
+import { youtube } from '../lib/youtube.js';
 
 /**
  * Descarga un video de YouTube y lo envía.
@@ -15,7 +16,7 @@ export default async function (sock, m, args) {
         await sock.sendMessage(m.key.remoteJid, { text: `🎬 Buscando y descargando video para: *${query}*...` }, { quoted: m });
 
         let videoUrl;
-        if (ytdl.validateURL(query)) {
+        if (parseVideoId(query)) {
             videoUrl = query;
         } else {
             const searchResults = await ytsr.search(query, { limit: 1, type: 'video' });
@@ -25,14 +26,17 @@ export default async function (sock, m, args) {
             videoUrl = searchResults[0].url;
         }
 
-        const videoInfo = await ytdl.getInfo(videoUrl);
+        const videoInfo = await youtube.getInfo(videoUrl);
         const videoLength = parseInt(videoInfo.videoDetails.lengthSeconds, 10);
         if (videoLength > 300) { // Limitar a 5 minutos (300 segundos)
             return await sock.sendMessage(m.key.remoteJid, { text: "❌ El video es demasiado largo. El límite para videos es de 5 minutos." });
         }
 
-        const format = ytdl.chooseFormat(videoInfo.formats, { quality: '18', filter: 'videoandaudio' });
-        const stream = ytdl(videoUrl, { format });
+        const format = chooseFormat(videoInfo.formats, {
+            quality: '18',
+            filter: { hasAudio: true, hasVideo: true }
+        });
+        const stream = youtube.download(videoInfo, { format });
 
         await sock.sendMessage(m.key.remoteJid, { video: stream, caption: `*${videoInfo.videoDetails.title}*` }, { quoted: m });
 

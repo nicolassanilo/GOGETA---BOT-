@@ -1,5 +1,5 @@
-# Usar Node.js v16 como imagen base
-FROM node:16-alpine
+# Usar Node.js 24 para cumplir los requisitos actuales de las dependencias
+FROM node:24-alpine
 
 # Establecer el directorio de trabajo
 WORKDIR /app
@@ -8,13 +8,13 @@ WORKDIR /app
 COPY package*.json ./
 
 # Instalar dependencias
-RUN npm ci --only=production
+RUN npm install --omit=dev
 
 # Copiar el resto del código
 COPY . .
 
 # Crear directorios necesarios
-RUN mkdir -p data sessions media
+RUN mkdir -p data session media
 
 # Exponer el puerto
 EXPOSE 3000

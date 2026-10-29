@@ -9,7 +9,7 @@ let plugins = {}; // Aquí almacenaremos los plugins cargados
 
 const startSock = async () => {
   const { version } = await fetchLatestBaileysVersion();
-  const { state, saveCreds } = await useMultiFileAuthState('./session');
+  const { state, saveCreds } = await useMultiFileAuthState(process.env.SESSION_PATH || './session');
 
   // Crea una instancia de logger. Cambia a 'info' para ver más detalles.
   const logger = pino({ level: 'silent' });

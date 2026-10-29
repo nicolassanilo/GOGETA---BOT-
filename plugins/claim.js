@@ -39,7 +39,7 @@ export default async function (sock, m) {
     const now = Date.now();
 
     if (now - user.lastClaim < COOLDOWN) {
-        const timeLeft = new Date(user.lastClaim + COOLDOWN - now).toISOString().substr(11, 8);
+        const timeLeft = new Date(user.lastClaim + COOLDOWN - now).toISOString().slice(11, 19);
         await sock.sendMessage(m.key.remoteJid, { text: `⏳ Debes esperar ${timeLeft} para volver a reclamar.` });
         return;
     }

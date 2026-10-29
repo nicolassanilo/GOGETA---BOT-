@@ -9,9 +9,11 @@ services:
       - "3000:3000"
     volumes:
       - ./data:/app/data
-      - ./sessions:/app/sessions
+      - ./session:/app/session
       - ./media:/app/media
     environment:
       - NODE_ENV=production
+      - SESSION_PATH=/app/session
+      - DATABASE_PATH=/app/data
     env_file:
       - .env

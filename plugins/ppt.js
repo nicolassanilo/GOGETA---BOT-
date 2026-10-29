@@ -7,19 +7,15 @@ export default async function (sock, m) {
     if (buttonId && opciones.includes(buttonId)) {
         const eleccionUsuario = buttonId;
         const eleccionBot = opciones[Math.floor(Math.random() * opciones.length)];
-        let resultado = "";
-
-        if (eleccionUsuario === eleccionBot) {
-            resultado = "🤝 ¡Empate!";
-        } else if (
+        const resultado = eleccionUsuario === eleccionBot
+            ? "🤝 ¡Empate!"
+            : (
             (eleccionUsuario === "piedra" && eleccionBot === "tijera") ||
             (eleccionUsuario === "papel" && eleccionBot === "piedra") ||
             (eleccionUsuario === "tijera" && eleccionBot === "papel")
-        ) {
-            resultado = "🎉 ¡Ganaste!";
-        } else {
-            resultado = "😢 ¡Perdiste!";
-        }
+                ? "🎉 ¡Ganaste!"
+                : "😢 ¡Perdiste!"
+            );
 
         await sock.sendMessage(jid, {
             text: `Tu elegiste: *${eleccionUsuario}*\nYo elegí: *${eleccionBot}*\n\n${resultado}`
@@ -40,4 +36,3 @@ export default async function (sock, m) {
       footer: "🔥 Gogeta - Bot 🔥"
     });
 }
-

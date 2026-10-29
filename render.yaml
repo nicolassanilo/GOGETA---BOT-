@@ -12,10 +12,14 @@ services:
     # Variables de entorno para asegurar la versión correcta de Node.js
     envVars:
       - key: NODE_VERSION
-        value: 20 # Usamos la versión 20, que es moderna y estable
+        value: 24.15.0 # Requisito mínimo de @distube/ytdl-core 5
+      - key: SESSION_PATH
+        value: /var/data/session
+      - key: DATABASE_PATH
+        value: /var/data/data
     # Discos persistentes para guardar la sesión y los datos
     disks:
       - name: gogeta-session
-        mountPath: ./session
+        mountPath: /var/data/session
       - name: gogeta-data
-        mountPath: ./data
+        mountPath: /var/data/data

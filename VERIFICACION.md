@@ -82,14 +82,14 @@ GOGETA---BOT-/
 ├── plugins/              # 40 plugins funcionales
 ├── lib/                  # Sistema core
 ├── data/                 # Base de datos
-├── sessions/             # Sesiones de WhatsApp
+├── session/              # Sesiones de WhatsApp
 └── media/                # Archivos multimedia
 ```
 
 ## 🚀 Para Iniciar el Bot
 
 ### Requisitos Previos
-1. **Node.js v16.x o superior**
+1. **Node.js 24.15.0 o superior (versiones 24.x o 26+)**
 2. **npm** (incluido con Node.js)
 3. **Número de WhatsApp** para vincular
 
@@ -136,7 +136,7 @@ npm start
 - **VPS**: Usar `pm2` o `forever`
 
 ### Backups Importantes
-- `sessions/` - Sesiones de WhatsApp
+- `session/` - Sesiones de WhatsApp
 - `data/` - Base de datos de usuarios
 - `config.json` - Configuración persistente
 

@@ -43,7 +43,7 @@
 Sigue estos pasos para tener tu propia instancia de Gogeta Bot funcionando en minutos.
 
 #### **1. Requisitos Previos**
-- Node.js `(v16.x o superior)`
+- Node.js `24.15.0 o superior` (versiones 24.x o 26+)
 - Git
 - Un número de WhatsApp activo para vincular.
 
@@ -101,7 +101,7 @@ Render es una excelente alternativa para un despliegue estable con almacenamient
 5.  Haz clic en **"Apply"** para iniciar el despliegue.
 6.  Una vez desplegado, ve a la pestaña **"Logs"** de tu servicio para ver el código QR y escanearlo.
 
-> El disco persistente asegurará que no pierdas tu sesión (`session`) ni tus datos de usuario (`data`) cada vez que el bot se reinicie.
+> Los discos persistentes guardan la sesión (`session`) y los datos de usuario (`data`) entre reinicios.
 ---
 
 ### `—[ ⚙️ COMANDOS DISPONIBLES ]—`

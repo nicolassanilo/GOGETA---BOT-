@@ -23,7 +23,6 @@ const directories = [
     'plugins',
     'lib',
     'data',
-    'sessions',
     'media'
 ];
 
@@ -106,7 +105,7 @@ console.log('✅ Todos los plugins reparados');
 console.log('✅ Sistema de menús actualizado');
 console.log('⚠️ Requiere Node.js y npm para ejecutar');
 console.log('\n📝 Para iniciar el bot:');
-console.log('1. Instala Node.js (v16.x o superior)');
+console.log('1. Instala Node.js (v24.15.0 o superior, excepto Node 25)');
 console.log('2. Ejecuta: npm install');
 console.log('3. Ejecuta: npm start');
 console.log('4. Escanea el código QR con WhatsApp');

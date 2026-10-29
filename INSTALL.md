@@ -1,11 +1,11 @@
-# Instalación de Node.js v16 para GOGETA-BOT
+# Instalación de Node.js 24 para GOGETA-BOT
 
 ## Opción 1: Instalación Local (Recomendada)
 
 ### Windows
-1. **Descargar Node.js v16.x:**
-   - Visita: https://nodejs.org/download/release/v16.20.2/
-   - Descarga: `node-v16.20.2-x64.msi`
+1. **Instalar Node.js 24.15.0 o posterior de la rama 24:**
+   - Visita: https://nodejs.org/en/download/
+   - Descarga la versión LTS 24.x para Windows.
    - Ejecuta el instalador
 
 2. **Verificar instalación:**
@@ -17,30 +17,24 @@
 ### macOS
 1. **Usando Homebrew:**
    ```bash
-   brew install node@16
-   brew link node@16
+   brew install node@24
+   brew link node@24
    ```
 
 2. **O descargar desde:**
-   - https://nodejs.org/download/release/v16.20.2/
-   - `node-v16.20.2-darwin-x64.tar.gz`
+   - https://nodejs.org/en/download/
 
 ### Linux
 1. **Usando NVM (Recomendado):**
    ```bash
    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
    source ~/.bashrc
-   nvm install 16
-   nvm use 16
-   nvm alias default 16
+   nvm install 24.15.0
+   nvm use 24.15.0
+   nvm alias default 24.15.0
    ```
 
-2. **O descarga directa:**
-   ```bash
-   wget https://nodejs.org/download/release/v16.20.2/node-v16.20.2-linux-x64.tar.xz
-   tar -xf node-v16.20.2-linux-x64.tar.xz
-   sudo cp -r node-v16.20.2-linux-x64/* /usr/local/
-   ```
+2. **O descarga e instala Node.js 24.15.0 o posterior de la rama 24 desde:** https://nodejs.org/en/download/
 
 ## Opción 2: Docker (Sin instalación local)
 
@@ -67,7 +61,7 @@
 
 ### Replit
 1. Importa el repositorio en Replit
-2. Replit automáticamente usará Node.js v16
+2. Replit debe configurarse para usar Node.js 24.15.0 o posterior de la rama 24.
 3. Presiona "Run" para iniciar
 
 ### Render
@@ -87,7 +81,7 @@ Después de instalar Node.js, ejecuta:
 ```bash
 # Verificar versión de Node.js
 node --version
-# Debe mostrar: v16.x.x
+# Debe mostrar: v24.15.0 o posterior de la rama 24
 
 # Verificar versión de npm
 npm --version
@@ -101,8 +95,8 @@ npm start
 
 ## Archivos de Configuración Creados
 
-- `.nvmrc` - Especifica Node.js v16 para NVM
-- `Dockerfile` - Configuración para Docker con Node.js v16
+- `.nvmrc` - Especifica Node.js 24.15.0 para NVM
+- `Dockerfile` - Configuración para Docker con Node.js 24
 - `docker-compose.yml` - Orquestación de contenedores
 - `render.yaml` - Configuración para Render (ya existía)
 
@@ -136,7 +130,7 @@ OWNER_NUMBER=5492604035392
 ## Soporte
 
 Si tienes problemas:
-1. Verifica que Node.js v16 esté instalado correctamente
+1. Verifica que Node.js 24.15.0 o posterior de la rama 24 esté instalado correctamente
 2. Asegúrate de tener permisos de administrador
 3. Consulta los logs para errores específicos
 4. Prueba con Docker si la instalación local falla

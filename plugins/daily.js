@@ -9,7 +9,7 @@ export default async function (sock, m) {
     const now = Date.now();
 
     if (now - user.lastDaily < COOLDOWN) {
-        const timeLeft = new Date(user.lastDaily + COOLDOWN - now).toISOString().substr(11, 8);
+        const timeLeft = new Date(user.lastDaily + COOLDOWN - now).toISOString().slice(11, 19);
         await sock.sendMessage(m.key.remoteJid, { text: `⏳ Debes esperar ${timeLeft} para reclamar tu recompensa diaria.` });
         return;
     }
